@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+	<context id="devDbPostgres" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+		<!-- MapperにMapperアノテーションを付与 -->
+		<plugin
+			type="org.mybatis.generator.plugins.MapperAnnotationPlugin" />
+		<!-- equalsおよびhashCodeを自動生成 -->
+		<plugin
+			type="org.mybatis.generator.plugins.EqualsHashCodePlugin" />
+		<!-- マッパxmlファイルを生成時に上書きするためのプラグイン -->
+		<plugin
+			type="org.mybatis.generator.plugins.UnmergeableXmlMappersPlugin" />
+		<!-- Serializableプラグインは、モデルクラスにSerializableインターフェースを追加します -->
+		<plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+
+		<plugin type="org.mybatis.generator.plugins.RenameExampleClassPlugin">
+		    <property name="searchString" value="Example"/>
+		    <property name="replaceString" value="Criteria"/>
+		</plugin>
+		<plugin type="org.mybatis.generator.plugins.ToStringPlugin" />
+
+		<commentGenerator>			
+			<property name="suppressDate" value="true"/>
+			<property name="addRemarkComments" value="true" />
+		</commentGenerator>
+		<jdbcConnection
+			connectionURL="jdbc:postgresql://192.170.xx.xx:5532/devdb"
+			driverClass="org.postgresql.Driver" password="xxx"
+			userId="xxx" />
+		<javaModelGenerator
+			targetPackage="com.hyron.example.dev.simulator.entity"
+			targetProject="dev.simulator/src/main/java" />
+		<sqlMapGenerator targetPackage="mapper"
+			targetProject="dev.simulator/src/main/resources">
+		</sqlMapGenerator>
+		<javaClientGenerator
+			targetPackage="com.hyron.example.dev.simulator.mapper"
+			targetProject="dev.simulator/src/main/java" type="XMLMAPPER" />
+		<table schema="scm_xxx" tableName="%">
+		</table>
+	</context>
+</generatorConfiguration>

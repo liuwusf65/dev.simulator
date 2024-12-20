@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<property name="PATTERN"
+		value="%d{yyyy-MM-dd HH:mm:ss} %-5level [%thread] %msg &lt;%logger{16}#%method&gt;%n" />
+
+	<appender name="CONSOLE"
+		class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>${PATTERN}</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="FILE"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>./logs/simulator.log</file>
+		<encoder>
+			<pattern>${PATTERN}</pattern>
+		</encoder>
+		<rollingPolicy
+			class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+			<fileNamePattern>./logs/simulator.%d{yyyyMMdd}.%i.log</fileNamePattern>
+			<maxFileSize>100mb</maxFileSize>
+		</rollingPolicy>
+	</appender>
+
+	<logger name="org.thymeleaf" level="debug" additivity="false">
+		<appender-ref ref="CONSOLE" />
+	</logger>
+	<root level="info">
+		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="FILE" />
+	</root>
+</configuration>

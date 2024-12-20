@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{common/baseLayout}">
+
+<head>
+<title>ログイン画面</title>
+</head>
+<body class="bg-light">
+	<div layout:fragment="content">
+		<div
+			class="container d-flex justify-content-center align-items-center vh-100">
+			<div class="card shadow" style="width: 24rem;">
+				<div class="card-body">
+					<h5 class="card-title text-center mb-4">ログイン</h5>
+					<p th:if="${param.error}">無効なユーザー名またはパスワードです。もう一度お試しください。</p>
+					<form th:action="@{/login}" method="post" id="loginForm">
+						<div class="mb-3">
+							<label for="username" class="form-label">ユーザー名</label> <input
+								type="text" class="form-control" id="username" name="username"
+								placeholder="ユーザー名を入力ください" required>
+						</div>
+						<div class="mb-3">
+							<label for="password" class="form-label">パスワード</label> <input
+								type="password" class="form-control" id="password"
+								name="password" placeholder="パスワードを入力ください" required />
+						</div>
+						<div class="d-grid">
+							<button class="btn btn-primary"
+								onclick="event.preventDefault(); document.getElementById('loginForm').submit();">ログイン</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

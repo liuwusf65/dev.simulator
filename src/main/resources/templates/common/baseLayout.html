@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link type="text/css" rel="stylesheet" th:href="@{/webjars/jquery-ui/1.14.0/jquery-ui.min.css}">
+	<link type="text/css" rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}">
+	<link type="text/css" rel="stylesheet" th:href="@{css/common.css}">
+	<link type="text/css" rel="stylesheet" th:href="@{css/rrmg_common.css}" />
+	<!--/* 子画面のスクリプト */-->
+    <th:block layout:fragment="stylesheet">
+    </th:block>
+
+	<title layout:title-pattern="$CONTENT_TITLE｜$LAYOUT_TITLE">画面</title>
+</head>
+
+<body>
+	<div class="d-flex flex-column justify-content-center position-relative">
+		<div layout:fragment="content" class="main d-flex mx-auto flex-column justify-content-start " >
+		</div>
+		<div layout:fragment="footer" class="d-flex mx-auto flex-row justify-content-between footer position-fixed bottom-0">
+		</div>
+	</div>
+
+	<script type="text/javascript" th:src="@{/webjars/jquery/3.7.1/jquery.min.js}"></script>
+	<script type="text/javascript" th:src="@{/webjars/jquery-ui/1.14.0/jquery-ui.min.js}"></script>
+	<script type="text/javascript" th:src="@{/webjars/bootstrap/5.3.3/js/bootstrap.min.js}"></script>
+	<!--/* 子画面のスクリプト */-->
+    <th:block layout:fragment="script">
+    </th:block>
+</body>
+</html>
